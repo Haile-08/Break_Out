@@ -4,3 +4,6 @@
   padding: 2rem;
   text-align: center;
 }
+.canvas {
+  border: solid 1px #f5f6fa;
+}
