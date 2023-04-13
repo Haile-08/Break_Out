@@ -1,10 +1,10 @@
 import "./App.css";
-import Boad from "./pages/Boad";
+import Boad from "./Game/Boad";
+
 
 function App() {
   return (
     <div className="App">
-      {" "}
       <Boad />
     </div>
   );
