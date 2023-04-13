@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../App.css";
 import { BallMovement } from "./BallMovement";
+import {WallCollision} from "./util/WallCollisioin";
 import data from "../Data/Data";
 
 function Boad() {
@@ -13,19 +14,10 @@ function Boad() {
       let { ballObj } = data;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      //Handle Ball Movement
       BallMovement(ctx, ballObj);
-
-      if (
-        ballObj.y - ballObj.rad < 0 ||
-        ballObj.y + ballObj.rad > canvas.height
-      ) {
-        ballObj.dy *= -1;
-      }
-      if (
-        ballObj.x + ballObj.rad >= canvas.width || ballObj.x - ballObj.rad <= 0
-      ){
-        ballObj.dx *= -1;
-      }
+      //Handle Wall collision
+      WallCollision(ballObj, canvas);
       requestAnimationFrame(render);
     };
     render();
