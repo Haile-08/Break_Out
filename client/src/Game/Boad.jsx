@@ -13,8 +13,7 @@ function Boad() {
       ctx.beginPath();
       ctx.arc(x, 75, 50, 0, 2 * Math.PI);
       ctx.stroke();
-      x++;
-      console.log("render");
+      x += 8;
       requestAnimationFrame(render);
     };
     render();
