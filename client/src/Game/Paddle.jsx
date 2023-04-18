@@ -21,11 +21,11 @@ export default (ctx, canvas, paddleProps) => {
       }
     }
 
-    let paddle  = new Paddle(paddleProps.x);
-    paddle.move();
-    if (paddleProps.x <= 0){
-        paddleProps.x = 0;
-    }else if (paddleProps.x + paddleProps.width >= canvas.width) {
-        paddleProps.x = canvas.width - paddleProps.width;
-    }
+  let paddle = new Paddle(paddleProps.x);
+  paddle.move();
+  if (paddleProps.x <= 0) {
+    paddleProps.x = 0;
+  } else if (paddleProps.x + paddleProps.width >= canvas.width) {
+    paddleProps.x = canvas.width - paddleProps.width;
+  }
 }

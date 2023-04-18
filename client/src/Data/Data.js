@@ -24,7 +24,7 @@ export default {
   paddleProps: {
     height:20,
     width: 100,
-    x: 100,
+    x: 0,
     color: "orange"
   }
 };
