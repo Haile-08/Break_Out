@@ -51,5 +51,4 @@ export default function Brick(level, bricks, canvas, brick) {
       ctx.fill();
       ctx.strokeRect(this.x, this.y, this.width, this.height);
     }
-  }
-  
+}
