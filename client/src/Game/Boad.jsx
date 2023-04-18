@@ -6,6 +6,7 @@ import data from "../Data/Data";
 import Paddle from "./Paddle";
 import Brick from "./Brick";
 import BrickCollision from "./util/BrickCollision";
+import PaddleHit from "./util/PaddleHit";
 
 let bricks = [];
 let { ballObj, paddleProps,  brickObj } = data;
@@ -15,6 +16,8 @@ function Boad() {
     const render = () => {
       const canvas = canvaRef.current;
       const ctx = canvas.getContext("2d");
+
+      paddleProps.y = canvas.height - 30;
 
       //Assign bricks
       let newBricks = Brick(2, bricks, canvas, brickObj);
@@ -52,6 +55,8 @@ function Boad() {
           }
         }
       }
+
+      PaddleHit(ballObj, paddleProps);
       requestAnimationFrame(render);
     };
     render();
