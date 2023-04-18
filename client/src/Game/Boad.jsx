@@ -5,6 +5,7 @@ import {WallCollision} from "./util/WallCollisioin";
 import data from "../Data/Data";
 import Paddle from "./Paddle";
 import Brick from "./Brick";
+import BrickCollision from "./util/BrickCollision";
 
 let bricks = [];
 let { ballObj, paddleProps,  brickObj } = data;
@@ -33,6 +34,24 @@ function Boad() {
       WallCollision(ballObj, canvas);
       //Hnadle paddle movement
       Paddle(ctx, canvas, paddleProps);
+      //Brick collison
+
+      let brickCollision
+
+      for (let i = 0; i < bricks.length; i++) {
+        brickCollision = BrickCollision(ballObj, bricks[i]);
+
+        if (brickCollision.hit && !bricks[i].broke) {
+          // console.log(brickCollision);
+          if (brickCollision.axis === "X") {
+            ballObj.dx *= -1;
+            bricks[i].broke = true;
+          } else if (brickCollision.axis === "Y") {
+            ballObj.dy *= -1;
+            bricks[i].broke = true;
+          }
+        }
+      }
       requestAnimationFrame(render);
     };
     render();
